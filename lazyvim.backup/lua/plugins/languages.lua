@@ -7,7 +7,7 @@ return {
   { import = "lazyvim.plugins.extras.lang.ruby" },
   { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.lang.rust" },
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.lang.angular" },
   {
     "williamboman/mason.nvim",
     optional = true,
