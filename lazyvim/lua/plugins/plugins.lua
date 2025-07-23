@@ -10,14 +10,8 @@ return {
     opts = {
       formatters_by_ft = {
         svg = { "prettier" },
+        eruby = {},
       },
     },
   },
-  { import = "lazyvim.plugins.extras.linting.eslint" },
-  { import = "lazyvim.plugins.extras.formatting.prettier" },
-  { import = "lazyvim.plugins.extras.lang.ruby" },
-  { import = "lazyvim.plugins.extras.lang.go" },
-  { import = "lazyvim.plugins.extras.lang.rust" },
-  { import = "lazyvim.plugins.extras.lang.angular" },
-  { import = "lazyvim.plugins.extras.lang.tailwind" },
 }

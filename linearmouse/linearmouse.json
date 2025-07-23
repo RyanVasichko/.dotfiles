@@ -1,31 +1,31 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
+      "pointer" : {
+        "disableAcceleration" : true,
+        "acceleration" : 0.5
+      },
+      "if" : {
+        "device" : {
+          "productName" : "Razer Basilisk V3 Pro",
+          "category" : "mouse",
+          "productID" : "0xab",
+          "serialNumber" : "000000000000",
+          "vendorID" : "0x1532"
+        }
+      },
       "scrolling" : {
         "speed" : {
           "vertical" : 0
         },
-        "reverse" : {
-          "vertical" : true
-        },
         "acceleration" : {
           "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
         }
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x1532",
-          "productID" : "0xab",
-          "serialNumber" : "000000000000",
-          "productName" : "Razer Basilisk V3 Pro",
-          "category" : "mouse"
-        }
-      },
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 0.55
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }
