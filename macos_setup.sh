@@ -10,9 +10,9 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do
-	sudo -n true
-	sleep 60
-	kill -0 "$$" || exit
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
 done 2>/dev/null &
 
 echo "Installing updates..."
@@ -22,8 +22,8 @@ echo "Installing rosetta..."
 sudo softwareupdate --install-rosetta --agree-to-license
 
 if test ! $(which brew); then
-	echo "Installing homebrew..."
-	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Installing homebrew..."
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
@@ -49,56 +49,6 @@ EOF
 echo "Installing tools..."
 ~/.local/bin/mise install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-echo "Creating ~/.zshrc"
-echo "Installing oh-my-zsh..."
-RUNZSH=no KEEP_ZSHRC=yes sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-cat >~/.zshrc <<'EOF'
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-zstyle ':omz:update' mode auto
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
-eval "$($HOME/.local/bin/mise activate zsh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# ruby
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# Go
-export GOROOT=$(mise where go)
-export PATH=$GOROOT/bin:$PATH
-
-export EDITOR='nvim'
-
-export MISE_ENV_FILE=.env
-
-# Postgres
-# export PGGSSENCMODE="disable" # https://github.com/ged/ruby-pg/issues/538
-# export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
-
-alias ssh:ovh="ssh ubuntu@$OVH_HOST"
-
-alias maildev:start="docker start maildev || docker run --name maildev -d -p 1080:1080 -p 1025:1025 maildev/maildev"
-alias maildev:stop="docker stop maildev"
-alias ansible-playbook='docker run --rm -v $(pwd):/mnt -v /etc/ansible:/etc/ansible -v ~/.ssh:/root/.ssh -v /tmp:/tmp -w /mnt alpine/ansible ansible-playbook'
-
-# Ruby aliases
-alias bx="bundle exec"
-
-# Rails aliases
-alias r="./bin/rails"
-alias rt="r test --defer-output"
-alias rt:m="r test:models --defer-output"
-alias rt:c="r test:controllers --defer-output"
-alias rt:s="r test:system --defer-output"
-alias rt:all="r test:all --defer-output" 
-
-source $ZSH/oh-my-zsh.sh
-EOF
 
 # System Preferences
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
