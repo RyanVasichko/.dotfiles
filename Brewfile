@@ -15,6 +15,7 @@ brew "redis"
 brew "dockutil"
 brew "btop"
 brew "zellij"
+brew "starship"
 
 cask "orbstack"
 cask "font-hack-nerd-font"
