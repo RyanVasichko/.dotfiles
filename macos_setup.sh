@@ -89,7 +89,7 @@ dockutil --remove "Music"
 dockutil --remove "App Store"
 
 dockutil --add /Applications/Google\ Chrome.app --position 4
-dockutil --add /Applications/kitty.app --position 5
+dockutil --add /Applications/Ghostty.app --position 5
 dockutil --add /Applications/Spotify.app --position 6
 
 # Restart dock to apply changes
