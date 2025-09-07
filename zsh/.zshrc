@@ -54,4 +54,7 @@ alias rt:all="r test:all --defer-output"
 # Rust aliases
 alias cntr="cargo nextest run"
 
+alias cd="z"
+alias l="lsd"
+
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
